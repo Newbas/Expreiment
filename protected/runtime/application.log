@@ -1,0 +1,949 @@
+2013/07/11 23:29:53 [warning] [application] Failed to set unsafe attribute "username" of "Users".
+2013/07/11 23:29:53 [warning] [application] Failed to set unsafe attribute "rememberMe" of "Users".
+2013/07/11 23:45:28 [error] [php] Cannot modify header information - headers already sent by (output started at /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/components/Controller.php:42) (/data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CHttpRequest.php:1187)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/auth/CWebUser.php(256): CCookieCollection->remove()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(44): CWebUser->logout()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionLogout()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/logout
+2013/07/11 23:56:33 [error] [exception.CException] exception 'CException' with message 'Property "Users.id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/components/UserIdentity.php(51): CActiveRecord->__get('id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/auth/CWebUser.php(223): UserIdentity->getId()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/models/LoginForm.php(73): CWebUser->login(Object(UserIdentity), 2592000)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(27): LoginForm->login()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionLogin()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('login')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/login')
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/home/login
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:01:06 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.loginPage" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:173
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/auth/CWebUser.php(154): CComponent->__set('loginPage', '/')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/YiiBase.php(220): CWebUser->__set('loginPage', '/')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CModule.php(386): YiiBase::createComponent(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(209): CModule->getComponent('user')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/auth/CAccessControlFilter.php(129): CWebApplication->getUser()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('')
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:28:35 [error] [php] Missing argument 1 for Portfolio::getUserAttributes(), called in /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php on line 80 and defined (/data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php:32)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/12 00:28:47 [error] [exception.CException] exception 'CException' with message 'UserAttribute and its behaviors do not have a method or closure named "withUserAttributes".' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:265
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(225): CComponent->__call('withUserAttribu...', Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(34): CActiveRecord->__call('withUserAttribu...', Array)
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(34): UserAttribute->withUserAttributes('4')
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:29:01 [error] [php] array_merge(): Argument #2 is not an array (/data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php:1974)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(2204): CHasManyRelation->mergeWith()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(248): CHasManyRelation->mergeWith()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(283): CActiveFinder->buildJoinTree()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1301): CActiveFinder->__construct()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): Attribute->query()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): Attribute->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/12 00:29:49 [error] [php] array_merge(): Argument #2 is not an array (/data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php:1974)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(2204): CHasManyRelation->mergeWith()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(248): CHasManyRelation->mergeWith()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(283): CActiveFinder->buildJoinTree()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1301): CActiveFinder->__construct()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): Attribute->query()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): Attribute->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/12 00:30:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, ``.`user_attribute_id` AS `t4_c0`, ``.`attribute_id` AS `t4_c1`, ``.`attribute_value_id` AS `t4_c2`, ``.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position.
+2013/07/12 00:30:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, ``.`user_attribute_id` AS `t4_c0`, ``.`attribute_id` AS `t4_c1`, ``.`attribute_value_id` AS `t4_c2`, ``.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:31:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, ``.`user_attribute_id` AS `t4_c0`, ``.`attribute_id` AS `t4_c1`, ``.`attribute_value_id` AS `t4_c2`, ``.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position.
+2013/07/12 00:31:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, ``.`user_attribute_id` AS `t4_c0`, ``.`attribute_id` AS `t4_c1`, ``.`attribute_value_id` AS `t4_c2`, ``.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:32:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'attribute_id' in field list is ambiguous. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, ``.`user_attribute_id` AS `t1_c0`, ``.`attribute_id` AS `t1_c1`, ``.`attribute_value_id` AS `t1_c2`, ``.`users_id` AS `t1_c3`, `attribute`.`attribute_id` AS `t2_c0`, `attribute`.`name` AS `t2_c1`, `attribute`.`custom` AS `t2_c2`, `attribute`.`attribute_type_id` AS `t2_c3`, `attribute`.`formats` AS `t2_c4`, `attribute`.`position` AS `t2_c5`, `attribute`.`list` AS `t2_c6`, `attribute`.`attribute_group_id` AS `t2_c7`, `attributeValue`.`attribute_value_id` AS `t3_c0`, `attributeValue`.`value` AS `t3_c1`, `attributeValue`.`custom` AS `t3_c2`, `attributeValue`.`attribute_id` AS `t3_c3`, `attributeValue`.`position` AS `t3_c4` FROM `attribute` `t`  LEFT OUTER JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attribute.position, attributeValue.position.
+2013/07/12 00:32:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'attribute_id' in field list is ambiguous. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, ``.`user_attribute_id` AS `t1_c0`, ``.`attribute_id` AS `t1_c1`, ``.`attribute_value_id` AS `t1_c2`, ``.`users_id` AS `t1_c3`, `attribute`.`attribute_id` AS `t2_c0`, `attribute`.`name` AS `t2_c1`, `attribute`.`custom` AS `t2_c2`, `attribute`.`attribute_type_id` AS `t2_c3`, `attribute`.`formats` AS `t2_c4`, `attribute`.`position` AS `t2_c5`, `attribute`.`list` AS `t2_c6`, `attribute`.`attribute_group_id` AS `t2_c7`, `attributeValue`.`attribute_value_id` AS `t3_c0`, `attributeValue`.`value` AS `t3_c1`, `attributeValue`.`custom` AS `t3_c2`, `attributeValue`.`attribute_id` AS `t3_c3`, `attributeValue`.`position` AS `t3_c4` FROM `attribute` `t`  LEFT OUTER JOIN `user_attribute` `` ON (``.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (``.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (``.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attribute.position, attributeValue.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php
+---
+2013/07/12 00:33:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (`userAttributes`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (`userAttributes`.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position.
+2013/07/12 00:33:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'attributeValues'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3`, `attribute`.`attribute_id` AS `t5_c0`, `attribute`.`name` AS `t5_c1`, `attribute`.`custom` AS `t5_c2`, `attribute`.`attribute_type_id` AS `t5_c3`, `attribute`.`formats` AS `t5_c4`, `attribute`.`position` AS `t5_c5`, `attribute`.`list` AS `t5_c6`, `attribute`.`attribute_group_id` AS `t5_c7`, `attributeValues`.`attribute_value_id` AS `t6_c0`, `attributeValues`.`value` AS `t6_c1`, `attributeValues`.`custom` AS `t6_c2`, `attributeValues`.`attribute_id` AS `t6_c3`, `attributeValues`.`position` AS `t6_c4`, `attributeType`.`attribute_type_id` AS `t7_c0`, `attributeType`.`name` AS `t7_c1`, `attributeGroup`.`attribute_group_id` AS `t8_c0`, `attributeGroup`.`name` AS `t8_c1`, `attributeValue`.`attribute_value_id` AS `t9_c0`, `attributeValue`.`value` AS `t9_c1`, `attributeValue`.`custom` AS `t9_c2`, `attributeValue`.`attribute_id` AS `t9_c3`, `attributeValue`.`position` AS `t9_c4` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (`userAttributes`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`attribute`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`attribute`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (`userAttributes`.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (users_id = :user) ORDER BY t.position, attributeValues.position, attribute.position, attributeValues.position, attributeValue.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/home/profile
+---
+2013/07/12 00:34:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userse_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `userAttributes`.`user_attribute_id` AS `t1_c0`, `userAttributes`.`attribute_id` AS `t1_c1`, `userAttributes`.`attribute_value_id` AS `t1_c2`, `userAttributes`.`users_id` AS `t1_c3`, `attribute`.`attribute_id` AS `t2_c0`, `attribute`.`name` AS `t2_c1`, `attribute`.`custom` AS `t2_c2`, `attribute`.`attribute_type_id` AS `t2_c3`, `attribute`.`formats` AS `t2_c4`, `attribute`.`position` AS `t2_c5`, `attribute`.`list` AS `t2_c6`, `attribute`.`attribute_group_id` AS `t2_c7`, `attributeValue`.`attribute_value_id` AS `t3_c0`, `attributeValue`.`value` AS `t3_c1`, `attributeValue`.`custom` AS `t3_c2`, `attributeValue`.`attribute_id` AS `t3_c3`, `attributeValue`.`position` AS `t3_c4` FROM `attribute` `t`  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (`userAttributes`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (`userAttributes`.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (userse_id = :user) ORDER BY t.position, attribute.position, attributeValue.position.
+2013/07/12 00:34:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'userse_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `userAttributes`.`user_attribute_id` AS `t1_c0`, `userAttributes`.`attribute_id` AS `t1_c1`, `userAttributes`.`attribute_value_id` AS `t1_c2`, `userAttributes`.`users_id` AS `t1_c3`, `attribute`.`attribute_id` AS `t2_c0`, `attribute`.`name` AS `t2_c1`, `attribute`.`custom` AS `t2_c2`, `attribute`.`attribute_type_id` AS `t2_c3`, `attribute`.`formats` AS `t2_c4`, `attribute`.`position` AS `t2_c5`, `attribute`.`list` AS `t2_c6`, `attribute`.`attribute_group_id` AS `t2_c7`, `attributeValue`.`attribute_value_id` AS `t3_c0`, `attributeValue`.`value` AS `t3_c1`, `attributeValue`.`custom` AS `t3_c2`, `attributeValue`.`attribute_id` AS `t3_c3`, `attributeValue`.`position` AS `t3_c4` FROM `attribute` `t`  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute` `attribute` ON (`userAttributes`.`attribute_id`=`attribute`.`attribute_id`)  LEFT OUTER JOIN `attribute_value` `attributeValue` ON (`userAttributes`.`attribute_value_id`=`attributeValue`.`attribute_value_id`)  WHERE (userse_id = :user) ORDER BY t.position, attribute.position, attributeValue.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/home/profile
+---
+2013/07/12 00:35:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  WHERE (useres_id = :user) ORDER BY t.position, attributeValues.position.
+2013/07/12 00:35:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'where clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`)  WHERE (useres_id = :user) ORDER BY t.position, attributeValues.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/home/profile
+---
+2013/07/12 00:41:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'on clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`) AND (useres_id = :user)  ORDER BY t.position, attributeValues.position.
+2013/07/12 00:41:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'on clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`) AND (useres_id = :user)  ORDER BY t.position, attributeValues.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/home/profile
+---
+2013/07/12 00:41:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'on clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`) AND (useres_id = :user)  ORDER BY t.position, attributeValues.position.
+2013/07/12 00:41:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'useres_id' in 'on clause'. The SQL statement executed was: SELECT `t`.`attribute_id` AS `t0_c0`, `t`.`name` AS `t0_c1`, `t`.`custom` AS `t0_c2`, `t`.`attribute_type_id` AS `t0_c3`, `t`.`formats` AS `t0_c4`, `t`.`position` AS `t0_c5`, `t`.`list` AS `t0_c6`, `t`.`attribute_group_id` AS `t0_c7`, `attributeValues`.`attribute_value_id` AS `t1_c0`, `attributeValues`.`value` AS `t1_c1`, `attributeValues`.`custom` AS `t1_c2`, `attributeValues`.`attribute_id` AS `t1_c3`, `attributeValues`.`position` AS `t1_c4`, `attributeType`.`attribute_type_id` AS `t2_c0`, `attributeType`.`name` AS `t2_c1`, `attributeGroup`.`attribute_group_id` AS `t3_c0`, `attributeGroup`.`name` AS `t3_c1`, `userAttributes`.`user_attribute_id` AS `t4_c0`, `userAttributes`.`attribute_id` AS `t4_c1`, `userAttributes`.`attribute_value_id` AS `t4_c2`, `userAttributes`.`users_id` AS `t4_c3` FROM `attribute` `t`  LEFT OUTER JOIN `attribute_value` `attributeValues` ON (`attributeValues`.`attribute_id`=`t`.`attribute_id`)  LEFT OUTER JOIN `attribute_type` `attributeType` ON (`t`.`attribute_type_id`=`attributeType`.`attribute_type_id`)  LEFT OUTER JOIN `attribute_group` `attributeGroup` ON (`t`.`attribute_group_id`=`attributeGroup`.`attribute_group_id`)  LEFT JOIN `user_attribute` `userAttributes` ON (`userAttributes`.`attribute_id`=`t`.`attribute_id`) AND (useres_id = :user)  ORDER BY t.position, attributeValues.position' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php:541
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(761): CDbCommand->queryAll()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/home/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/home/profile
+---
+2013/07/12 00:47:50 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php:55)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/12 00:48:57 [error] [exception.CException] exception 'CException' with message 'Portfolio and its behaviors do not have a method or closure named "getUserAttributes".' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:265
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): CComponent->__call('getUserAttribut...', Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(80): Portfolio->getUserAttributes('4')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('home/profile')
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php/home/profile
+---
+2013/07/12 00:53:54 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php:72)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/12 00:56:32 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/views/home/profile.php:4)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): HomeController->renderFile()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(782): HomeController->renderPartial()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/HomeController.php(84): HomeController->render()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): HomeController->actionProfile()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): HomeController->runAction()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): HomeController->filterAccessControl()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): HomeController->runActionWithFilters()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): HomeController->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/home/profile
+2013/07/13 12:25:13 [error] [php] include(UserAttributes.php): failed to open stream: No such file or directory (/data02/virt40174/domeenid/www.myexperiments.eu/framework/YiiBase.php:421)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(35): spl_autoload_call()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(26): Portfolio->getUserAttributes()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 12:25:23 [error] [exception.CException] exception 'CException' with message 'Property "UserAttribute.attributeValues" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('attributeValues')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(57): CActiveRecord->__get('attributeValues')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:26:40 [error] [exception.CException] exception 'CException' with message 'Property "UserAttribute.name" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('name')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(61): CActiveRecord->__get('name')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:27:08 [error] [exception.CException] exception 'CException' with message 'Property "UserAttribute.attributeType" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('attributeType')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(63): CActiveRecord->__get('attributeType')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:27:17 [error] [exception.CException] exception 'CException' with message 'Property "UserAttribute.id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(65): CActiveRecord->__get('id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:27:36 [error] [exception.CException] exception 'CException' with message 'Property "AttributeValue.id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(65): CActiveRecord->__get('id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:28:30 [error] [exception.CException] exception 'CException' with message 'Property "AttributeValue.user_value_id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user_value_id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(65): CActiveRecord->__get('user_value_id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:34:05 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "AttributeValue" is trying to select an invalid column "id". Note, the column must exist in the table or be an expression with alias.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php:917
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(1239): CJoinElement->getColumnSelect('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(748): CJoinQuery->join(Object(CJoinElement))
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(420): CJoinElement->buildQuery(Object(CJoinQuery))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(38): CActiveRecord->findAll()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(26): Portfolio->getUserAttributes('4')
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#21 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:49:19 [error] [php] Missing argument 1 for CActiveRecord::getAttribute(), called in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php on line 111 and defined (/data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php:680)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(57): Attribute->__get()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 12:49:20 [error] [php] Missing argument 1 for CActiveRecord::getAttribute(), called in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php on line 111 and defined (/data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php:680)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(57): Attribute->__get()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 12:49:53 [error] [exception.CException] exception 'CException' with message 'Property "Attribute.user_attribute_id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user_attribute_...')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(62): CActiveRecord->__get('user_attribute_...')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:50:00 [error] [exception.CException] exception 'CException' with message 'Property "AttributeGroup.id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(64): CActiveRecord->__get('id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:55:06 [error] [exception.CException] exception 'CException' with message 'Property "AttributeGroup.id" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('id')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(52): CActiveRecord->__get('id')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(78): Portfolio->createAttribute(Object(Attribute))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:56:48 [error] [exception.CException] exception 'CException' with message 'UserController cannot find the requested view "ext.Portfolio.views.".' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php:878
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(119): CController->renderPartial('ext.Portfolio.v...', Array, true)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/views/user/profile.php(6): Portfolio->generateAttributeField(NULL)
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require('/data02/virt401...')
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): CBaseController->renderInternal('/data02/virt401...', Array, true)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): CBaseController->renderFile('/data02/virt401...', Array, true)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(782): CController->renderPartial('profile', Array, true)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(34): CController->render('profile', Array)
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#20 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/index
+---
+2013/07/13 12:58:05 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/framework/web/helpers/CHtml.php:2053)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(121): UserController->renderPartial()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/views/user/profile.php(6): Portfolio->generateAttributeField()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(782): UserController->renderPartial()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(34): UserController->render()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 12:58:57 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/framework/web/helpers/CHtml.php:2053)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(121): UserController->renderPartial()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/views/user/profile.php(6): Portfolio->generateAttributeField()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(782): UserController->renderPartial()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(34): UserController->render()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 13:00:06 [error] [php] Invalid argument supplied for foreach() (/data02/virt40174/domeenid/www.myexperiments.eu/framework/web/helpers/CHtml.php:2053)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(121): UserController->renderPartial()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/views/user/profile.php(6): Portfolio->generateAttributeField()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(126): require()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CBaseController.php(95): UserController->renderInternal()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(869): UserController->renderFile()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(782): UserController->renderPartial()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(34): UserController->render()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#18 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#19 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#20 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#21 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#22 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 13:28:47 [error] [php] Missing argument 4 for Portfolio::addUserAttributeValue(), called in /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php on line 107 and defined (/data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php:151)
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): UserController->runAction()
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): UserController->filterAccessControl()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): UserController->runActionWithFilters()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): UserController->run()
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CWebApplication->run()
+REQUEST_URI=/index.php/user/profile
+2013/07/13 13:41:34 [error] [exception.CException] exception 'CException' with message 'CDbConnection and its behaviors do not have a method or closure named "rollback".' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:265
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(115): CComponent->__call('rollback', Array)
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(115): CDbConnection->rollback()
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(32): Portfolio->saveAttributes(Array)
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/profile
+---
+2013/07/13 14:11:27 [error] [exception.CException] exception 'CException' with message 'Property "Attribute.attributeValue" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('attributeValue')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(51): CActiveRecord->__get('attributeValue')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(81): Portfolio->createAttribute(Object(Attribute), Array, Object(UserAttribute))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/user/profile
+---
+2013/07/13 14:11:43 [error] [exception.CException] exception 'CException' with message 'Property "Attribute.value" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('value')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(51): CActiveRecord->__get('value')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(81): Portfolio->createAttribute(Object(Attribute), Array, Object(UserAttribute))
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(27): Portfolio->collectAttributes(Array)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(30): Portfolio->getAttributes('4')
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#17 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/user/profile
+---
+2013/07/13 14:14:05 [error] [exception.CException] exception 'CException' with message 'Property "UserAttribute.user" is not defined.' in /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CComponent.php:130
+Stack trace:
+#0 /data02/virt40174/domeenid/www.myexperiments.eu/framework/db/ar/CActiveRecord.php(143): CComponent->__get('user')
+#1 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(168): CActiveRecord->__get('user')
+#2 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/extensions/Portfolio/Portfolio.php(118): Portfolio->updateUserAttributeValue('1', '1', 'Anton2', 'text')
+#3 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/protected/controllers/UserController.php(32): Portfolio->saveAttributes(Array)
+#4 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/actions/CInlineAction.php(49): UserController->actionProfile()
+#5 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(291): CFilterChain->run()
+#12 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(282): CController->run('profile')
+#14 /data02/virt40174/domeenid/www.myexperiments.eu/framework/web/CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 /data02/virt40174/domeenid/www.myexperiments.eu/framework/base/CApplication.php(169): CWebApplication->processRequest()
+#16 /data02/virt40174/domeenid/www.myexperiments.eu/htdocs/index.php(11): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php/user/profile
+HTTP_REFERER=http://www.myexperiments.eu/index.php/user/profile
+---
