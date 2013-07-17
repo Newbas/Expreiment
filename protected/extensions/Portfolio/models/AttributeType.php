@@ -70,6 +70,15 @@ class AttributeType extends CActiveRecord
 	}
 
 	/**
+	 * Check if it is media type
+	 * Very basic 
+	 * TODO::ADD MANY ARGS F NEEDEd
+	 */
+	public static function isMediaTypes($type){
+		return $type == 'media';
+	}
+	
+	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */

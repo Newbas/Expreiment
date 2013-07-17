@@ -35,6 +35,7 @@
 			),
 		)); ?>
 		
+		<?php if(Yii::app()->user->isGuest):?>
 		<div id="login-dialog" class="modal hide fade" role="dialog">
 	  	<?php echo CHtml::beginForm(array('/home/login'),'post',array('class'=>'form-signin'));?>
 	        <h2 class="form-signin-heading">Please sign in</h2>
@@ -61,11 +62,14 @@
 	        <button class="btn btn-large btn-primary ajax-submit" type="submit">Sign in</button>
 	      	<button class="btn btn-large" data-dismiss="modal" aria-hidden="true">Close</button>
 	      </form>
+	      <div class="row">
+	      	<?php $this->widget('ext.eauth.EAuthWidget');?>
+	      	</div>
 	  </div>
-	  
+	  <?php endif;?>
 		<h3 class="muted text-left"><?php echo Yii::app()->name;?></h3>
       </div>
-	
+	  
       <hr>
 	
 	<div class="row">
@@ -75,6 +79,18 @@
 				'class'=>'nav nav-pills pull-left'
 			),
 		)); ?>
+		<?php if(!Yii::app()->user->isGuest):?>
+		<div class="btn-group">
+		<a class="btn dropdown-toggle btn-success btn-small " style="margin-top: 4px;" data-toggle="dropdown" href="#">
+			Add
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><?php echo CHtml::link('Project', array('/user/works'))?></li>
+		<!-- dropdown menu links -->
+		</ul>
+		</div>
+		<?php endif;?>
       </div>
       <?php echo $content;?>
       

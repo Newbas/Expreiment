@@ -22,21 +22,64 @@ class Portfolio extends CComponent{
 	/**
 	 * Return list of all available attributes
 	 */
-	public function getAttributes($user = null){
-		$attributes = $this->getUserAttributes($user);
-		return $this->collectAttributes($attributes);
+	public function getAttributes($type, $user = null, &$userDataType = null){
+		//$attributes = $this->getUserAttributes($user);
+		if(!$user)
+			$user = Yii::app()->user->id;
+		if(!$userDataType)
+			$userDataType = $this->getDatatype($type, $user);
+		$attributes = $this->getTypeAttributes($userDataType ,$user);
+		return $this->collectAttributes($userDataType, $attributes);
+	}
+	
+	/**
+	 * Get user data type, if not exists create new
+	 * @param unknown $type
+	 * @param unknown $user
+	 * @throws Exception
+	 * @return UserDataType
+	 */
+	public function getDatatype($type, $user){
+		$dataType = DataType::model()->findByAttributes(array('name' => $type));
+		if($dataType == null)
+			throw new Exception('Data type not exists');
+		$userDataType = UserDataType::model()
+			->findByAttributes(array(
+					'data_type_id'=>$dataType->data_type_id,
+					'users_id' => $user
+			));
+		if($userDataType == null)
+			$userDataType = $this->createDatatype($dataType->data_type_id, $user);
+		return $userDataType;
+	}
+	
+	/**
+	 * Create datatype
+	 * @param unknown $type
+	 * @param unknown $user
+	 * @return UserDataType
+	 */
+	protected function createDatatype($type, $user){
+		$dataType = new UserDataType;
+		$dataType->users_id = $user;
+		$dataType->data_type_id = $type;
+		return $dataType;
+	}
+	
+	/**
+	 * Get user data type attributes
+	 */
+	public function getTypeAttributes($userDataType, $user, $id = null){
+		$attributes = $userDataType->getUserAttributes();
+		return $attributes;
 	}
 	
 	/**
 	 * Get from database all user attributes
 	 * @param string $user
+	 * @deprecated
 	 */
 	protected function getUserAttributes($user = null){
-// 		return UserAttribute::model()
-// 					->withAttributes()
-// 					->userAttributes($user)
-// 					->findAll();
-		
 		return $user ? 
 			Attribute::model()
 				->withUserAttributes($user)
@@ -44,9 +87,14 @@ class Portfolio extends CComponent{
 			Attribute::model()->findAll();
 	}
 	
-	private function createAttribute($attribute, $options, $userAttribute = null){
+	private function createAttribute($userDataType, $attribute, $options){
+		$userAttribute = $userDataType->isNewRecord ? 
+							null :
+							$attribute->userAttributes[0];
 		$id = $userAttribute ? $userAttribute->user_attribute_id : 'new'.$attribute->attribute_id;
-		$value = $userAttribute ? $this->isIdType($type) ? 
+// 		if($attribute->list)
+// 			$id .= '[1]';
+		$value = $userAttribute ? $this->isIdType($attribute->attributeType->name) ? 
 									$userAttribute->attribute_value_id :
 									$userAttribute->value : '';
 		$temp = array(
@@ -58,7 +106,8 @@ class Portfolio extends CComponent{
 				'group' => $attribute->attributeGroup->attribute_group_id,
 				'value' => $value,//$attribute->attributeValue->attribute_value_id,
 				'options' => $options,
-				'errors' => ''
+				'errors' => '',
+				'format' => $attribute->formats
 		);
 		return $temp;
 	}
@@ -68,22 +117,16 @@ class Portfolio extends CComponent{
 	 * 
 	 * @param array $attributes list of attributes
 	 */
-	protected function collectAttributes($attributes){
+	protected function collectAttributes($userDataType, $attributes){
 		$result = array();
+// 		$attributes = $this->getTypeAttributes($userDataType ,$user);
 		foreach($attributes as $attribute){
 			//generate options
 			$options = array();
 			foreach($attribute->attributeValues as $value)
 				$options[$value->attribute_value_id] = $value->value;
 			//TODO::add VALUE
-			if(count($attribute->userAttributes) != 0){
-				foreach($attribute->userAttributes as $userAttribute){
-					$temp = $this->createAttribute($attribute, $options, $userAttribute);
-				}
-			}
-			else{
-				$temp = $this->createAttribute($attribute, $options);
-			}
+			$temp = $this->createAttribute($userDataType, $attribute, $options);
 			
 			array_push($result, $temp);
 		}
@@ -95,26 +138,32 @@ class Portfolio extends CComponent{
 	 * 
 	 * @param unknown $attributes
 	 */
-	public function saveAttributes($attributes){
+	public function saveAttributes($type, $attributes){
 		$user = Yii::app()->user->id;
-		$dbAttributes = $this->getAttributes($user);
+		$dbAttributes = $this->getAttributes($type, $user, $userDataAttributes);
 		$transaction = Yii::app()->db->beginTransaction();
+// 		var_dump($transaction);die;
+		$userDataAttributes->save();
 		$mainResult = true;
 		//save each attribute
 		foreach($dbAttributes as $key => $attr){
 			$result = true;
+			if(!isset($attributes[$attr['id']]) && !AttributeType::isMediaTypes($attr['type'])){
+				throw new Excpetion('No such attribute');
+			}
 			$value = $attributes[$attr['id']];
 			//if new attribute
 			if(strpos($attr['id'], 'new') !== false){
 				$result = $this->addUserAttributeValue(
-					$user, $attr['attribute_id'], 
-					$value, $attr['type']
+					$userDataAttributes->user_data_type_id,
+					$attr['attribute_id'], 
+					$value, $attr['type'],$attr['id']
 				);
 			}
 			else{//update old attribute
 				$result = $this->updateUserAttributeValue(
 						$attr['id'], $attr['attribute_id'],
-						$value, $attr['type']
+						$value, $attr['type'],$attr['id']
 				);
 			}
 			$dbAttributes[$key]['value'] = $value;
@@ -122,10 +171,12 @@ class Portfolio extends CComponent{
 			$mainResult = $mainResult && $result;
 		}
 		//commit or rollback on errors
-		if($result)
+		if($mainResult)
 			$transaction->commit();
-		else 
+		else {
 			$transaction->rollback();
+		}
+			
 		return $dbAttributes;
 	}
 	
@@ -149,9 +200,9 @@ class Portfolio extends CComponent{
 	 * @param mixed $value attribute value id
 	 * @param boolean $force force to add value without check
 	 */
-	public function addUserAttributeValue($user, $attribute, $value, $type, $force=false){
+	public function addUserAttributeValue($user, $attribute, $value, $type, $fieldname, $force=false){
 		$attributeValue = new UserAttribute();
-		$attributeValue = $this->setUserAttributes($attributeValue, $user, $attribute, $value,$type);
+		$attributeValue = $this->setUserAttributes($attributeValue, $user, $attribute, $value,$type,$fieldname);
 		return $this->saveModel($attributeValue, $force);
 	}
 	
@@ -163,9 +214,9 @@ class Portfolio extends CComponent{
 	 * @param type $type type 
 	 * @param string $force
 	 */
-	public function updateUserAttributeValue($pk, $attribute, $value, $type, $force=false){
+	public function updateUserAttributeValue($pk, $attribute, $value, $type, $fieldname, $force=false){
 		$attributeValue = UserAttribute::model()->findByPk($pk);
-		$attributeValue = $this->setUserAttributes($attributeValue, $attributeValue->users_id, $attribute, $value,$type);
+		$attributeValue = $this->setUserAttributes($attributeValue, $attributeValue->user_data_type_id, $attribute, $value,$type, $fieldname);
 		return $this->saveModel($attributeValue, $force);
 	}
 	
@@ -177,12 +228,14 @@ class Portfolio extends CComponent{
 	 * @param mixed $value value id or string 
 	 * @return boolean
 	 */
-	public function setUserAttributes($attributeValue, $user, $attribute, $value, $type){
-		$attributeValue->users_id = $user;
+	public function setUserAttributes($attributeValue, $user_data_type_id, $attribute, $value, $type, $fieldname){
+		$attributeValue->users_id = Yii::app()->user->id;
+		$attributeValue->user_data_type_id = $user_data_type_id;
 		$attributeValue->attribute_id = $attribute;
+		$attributeValue->fieldname = $fieldname;
 		$this->isIdType($type) ?
-		$attributeValue->attribute_value_id = $value :
-		$attributeValue->value = $value;
+			$attributeValue->attribute_value_id = $value :
+			$attributeValue->value = $value;
 		return $attributeValue;
 	}
 	
@@ -194,6 +247,8 @@ class Portfolio extends CComponent{
 	 * @param string $format Descrption for field (number, char, fileformats) TODO::Organize this info
 	 * @param number $position position for attribute 
 	 * @param boolean $force force to add value without check
+	 * 
+	 * @deprecated
 	 */
 	public function addAttribute($name, $type, $format=null, $position=0,$force=false){
 		$attribute = new Attribute;
@@ -211,6 +266,8 @@ class Portfolio extends CComponent{
 	 * @param boolean $custom Custom value or predefined
 	 * @param number $position Position in list
 	 * @param boolean $force force to add value without check
+	 * 
+	 * @deprecated
 	 */
 	public function addAttributeValue($attribute, $value, $custom=false, $position=0, $force = false){
 		$attributeValue = new AttributeValue();
@@ -228,7 +285,7 @@ class Portfolio extends CComponent{
 	}
 	
 	private function isIdType($type){
-		return array_key_exists($type, array('dropdown', 'checkbox', 'radio'));
+		return array_key_exists($type, array('dropdown'=>1, 'checkbox'=>1, 'radio'=>1));
 	}
 	
 }

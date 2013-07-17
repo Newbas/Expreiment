@@ -48,6 +48,41 @@ class HomeController extends Controller{
 	public function actionLogin(){
 		$model = new LoginForm();
 		
+		$service = Yii::app()->request->getQuery('service');
+		if (isset($service)) {
+			$authIdentity = Yii::app()->eauth->getIdentity($service);
+			$authIdentity->redirectUrl = $this->createAbsoluteUrl('/account/user/index');//Yii::app()->user->returnUrl;
+			$authIdentity->cancelUrl = $this->createAbsoluteUrl('/account/user/login');
+			 
+			if ($authIdentity->authenticate()) {
+				if ($authIdentity->isAuthenticated) {
+					$user = new Users('openid');
+					//collect data
+					$mail = $authIdentity->getAttribute('email');
+					$firstname = $authIdentity->getAttribute('name');
+					$lastname = $authIdentity->getAttribute('lastname');
+					$model->username = $mail;
+					$model->password = '123';//set some pass
+					if($model->validate() && $model->login()){
+						$authIdentity->redirect();
+					}
+					else{
+						$identity = new UserIdentity($mail,'');
+						$identity->authenticate();
+						Yii::app()->user->login($identity,0);
+					}
+					$authIdentity->redirect();
+				}
+				else {
+					//$this->errorCode = self::ERROR_NOT_AUTHENTICATED;
+					$authIdentity->cancel();
+				}
+		
+			}
+			 
+			// something wrong
+		}
+		
 		if(isset($_POST['LoginForm'])){
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid

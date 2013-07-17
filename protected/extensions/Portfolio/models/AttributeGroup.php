@@ -9,6 +9,7 @@
  *
  * The followings are the available model relations:
  * @property Attribute[] $attributes
+ * @deprecated
  */
 class AttributeGroup extends CActiveRecord
 {

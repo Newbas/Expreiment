@@ -17,6 +17,8 @@
  */
 class UserAttribute extends CActiveRecord
 {
+	public $fieldname;
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -36,21 +38,66 @@ class UserAttribute extends CActiveRecord
 	}
 
 	/**
+	 * TODO::CORRECT FILE VALIDATIOn
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()
 	{
+// 		$validation = json_decode($this->attribute->validation, true);
+// 		if($this->isFileAttribute()){
+// 			var_dump($validation);
+// 			var_dump($validation[0]);die;
+// 		}
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
 			array('attribute_id, users_id', 'required'),
 			array('attribute_id, attribute_value_id, users_id', 'numerical', 'integerOnly'=>true),
-			array('value', 'checkValue'),
+			//array('value', 'checkValue'),
+			json_decode($this->attribute->validation, true),
+			array('value', 'file', 'types'=>$this->attribute->formats, 'allowEmpty'=>1),
 			array('attribute_value_id', 'exist', 'className'=>'AttributeValue'),
+			array('fieldname','safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('user_attribute_id, attribute_id, attribute_value_id, users_id', 'safe', 'on'=>'search'),
 		);
+	}
+	
+	/**
+	 * Before validate event handler
+	 * checks if it s fiel attribute put it into file
+	 */
+	protected function beforeValidate(){
+		return parent::beforeValidate();
+	}
+	
+	/**
+	 * Upload File if it does exist and set link into value attribute
+	 * TODO::MAY BE FIX NAME f will be changes
+	 */
+	protected function beforeSave(){
+		if($this->isFileAttribute()){
+			$file = CUploadedFile::getInstanceByName('Attribute['.$this->fieldname.']');
+			if($file){
+				$basePath = Yii::app()->basePath.'/..';
+				$path= '/upload/'.$file->name;
+				$file->saveAs($basePath.$path);
+				$this->attribute_value_id = null;
+				$this->value = $path;
+			}
+			else 
+				return false;
+		}
+		return parent::beforeSave();
+	}
+	
+	/**
+	 * Check if it s file attribute
+	 * @return boolean
+	 */
+	protected function isFileAttribute(){
+		return AttributeType::isMediaTypes($this->attribute->attributeType->name);
 	}
 	
 	/**

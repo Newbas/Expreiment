@@ -15,6 +15,7 @@ class m130710_212349_user_data extends CDbMigration
 				'custom' => 'boolean DEFAULT true',
 				'attribute_type_id' => 'INTEGER NOT NULL',
 				'formats' => 'VARCHAR(50) NULL',
+				'validation' => 'text',
 				'position' => 'INTEGER NOT NULL',
 				'list' => 'boolean default false',
 				'attribute_group_id' => 'integer Default NULL'
@@ -109,6 +110,10 @@ class m130710_212349_user_data extends CDbMigration
 		$this->insert('attribute_type',array(
 			'attribute_type_id'=>7,
 			'name' => 'medialink',
+		));
+		$this->insert('attribute_type',array(
+				'attribute_type_id'=>7,
+				'name' => 'textarea',
 		));
 		
 		//insert groups

@@ -12,7 +12,8 @@
  * @property integer $position
  * @property integer $list
  * @property integer $attribute_group_id
- *
+ * @property string $validation
+ * 
  * The followings are the available model relations:
  * @property AttributeGroup $attributeGroup
  * @property AttributeType $attributeType
@@ -50,6 +51,7 @@ class Attribute extends CActiveRecord
 			array('name, attribute_type_id, position', 'required'),
 			array('custom, attribute_type_id, position, list, attribute_group_id', 'numerical', 'integerOnly'=>true),
 			array('name, formats', 'length', 'max'=>50),
+			array('validation', 'default','value' => '["value","checkValue"]'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('attribute_id, name, custom, attribute_type_id, formats, position, list, attribute_group_id', 'safe', 'on'=>'search'),
@@ -68,6 +70,10 @@ class Attribute extends CActiveRecord
 			'attributeType' => array(self::BELONGS_TO, 'AttributeType', 'attribute_type_id'),
 			'attributeValues' => array(self::HAS_MANY, 'AttributeValue', 'attribute_id'),
 			'userAttributes' => array(self::HAS_MANY, 'UserAttribute', 'attribute_id'),
+			'dataTypeAttributes' => array(self::HAS_MANY, 'DataTypeAttribute', 'attribute_id'),
+			'dataTypes' => array(self::HAS_MANY, 'DataType', 'data_type_id',
+				'through' => 'dataTypeAttributes'
+			),
 		);
 	}
 
@@ -93,16 +99,65 @@ class Attribute extends CActiveRecord
 	 * 
 	 * @param unknown $user
 	 */
-	public function withUserAttributes($user){
+// 	public function withUserAttributes($user){
+// 		die;
+// 		$this->getDbCriteria()->mergeWith(array(
+// 	        'with'=>array('userAttributes'=>array(
+// 	        	'alias' => 'userAttributes',
+// 	        	'on' => 'users_id = :user',
+// 	        	'joinType' => 'LEFT JOIN',
+// 	        	'params' => array(':user'=>$user)
+// 	        )),
+// 	    ));
+// 	    return $this;
+// 	}
+	
+	/**
+	 *
+	 * @param unknown $user
+	 */
+	public function withUserTypeAttributes($type, $dataType){
 		$this->getDbCriteria()->mergeWith(array(
-	        'with'=>array('userAttributes'=>array(
-	        	'alias' => 'userAttributes',
-	        	'on' => 'users_id = :user',
-	        	'joinType' => 'LEFT JOIN',
-	        	'params' => array(':user'=>$user)
-	        )),
-	    ));
-	    return $this;
+				'with'=>array('userAttributes'=>array(
+						'alias' => 'userAttributes',
+						'joinType' => 'LEFT JOIN',
+					),
+					'dataTypeAttributes'=>array(
+							'alias' => 'dataTypeAttributes',
+							'on' => 'dataTypeAttributes.data_type_id = :type',
+							'joinType' => 'JOIN',
+							'params' => array(':type'=>$type)
+					),
+				),
+				//'condition' => 'userAttributes.user_data_type_id = :type',
+				'params' => array(':type'=>$type)
+		));
+		return $this;
+	}
+	
+	/**
+	 *
+	 * @param unknown $user
+	 */
+	public function withDataTypeAttributes($type, $user_type){
+		$this->getDbCriteria()->mergeWith(array(
+				'with'=>array(
+					'dataTypeAttributes'=>array(
+						'alias' => 'dataTypeAttributes',
+						'on' => 'dataTypeAttributes.data_type_id = :type',
+						'joinType' => 'JOIN',
+						'params' => array(':type'=>$type)
+					),
+					'userAttributes'=>array(
+						'alias' => 'userAttributes',
+						'on' => 'userAttributes.user_data_type_id = :user_type and userAttributes.users_id = :user',
+						'joinType' => 'LEFT JOIN',
+						'together' => true,
+						'params' => array(':user_type'=>$user_type, ':user'=>Yii::app()->user->id)
+					),
+				),
+		));
+		return $this;
 	}
 	
 	/**

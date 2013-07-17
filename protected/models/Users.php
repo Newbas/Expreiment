@@ -46,6 +46,7 @@ class Users extends CActiveRecord
 			array('password', 'length', 'max'=>40),
 			array('salt', 'default','value'=> sha1(uniqid),'on'=>'register'),
 			array('password', 'default', 'value' => sha1($this->password), 'setOnEmpty'=>false, 'on'=>'register'),
+			array('password', 'default', 'value' => sha1('123'), 'setOnEmpty'=>false, 'on'=>'service'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('users_id, email, password', 'safe', 'on'=>'search'),
